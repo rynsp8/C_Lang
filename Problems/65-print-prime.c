@@ -5,7 +5,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <time.h>
-#include "myheader.h"
+//#include "myheader.h"
 
 bool isPrime(int num);
 
