@@ -46,7 +46,7 @@ Wall time used = 32 seconds
     time_t wallBegin = time(NULL); //Epoch is time since 00:00:00 UTC, January 1, 1970;
 
     //open file to read-ony
-    FILE *fp = fopen("100000-random", "r");
+    FILE *fp = fopen("10-random", "r");
 
     //check for fopen error on file
     if(fp == NULL){
@@ -56,21 +56,21 @@ Wall time used = 32 seconds
 
     //create buffer of 10 integers + 1 for NULL character...
     int scanBuff[1] = {0};
-    int* newArray = malloc((100000 * sizeof(int)) + 1);
+    int* newArray = malloc((10 * sizeof(int)) + 1);
     int i = 0;
 
     printf("newArray before fread() - ");
 
-    //for(int j = 0; j < 100000; j++){
-    //    printf("%d, ", newArray[j]);
-    //}
+    for(int j = 0; j < 10; j++){
+        printf("%d, ", newArray[j]);
+    }
 
     printf("\nfscanf() into newArray- ");
 
     //using fscanf() to read out the formated integers into scanBuff
     while(fscanf(fp, "%d, ", &scanBuff[0]) == 1){
         newArray[i] = scanBuff[0];
-        //printf("%d, ", scanBuff[0]);
+        printf("%d, ", scanBuff[0]);
         i++;
     }
 
@@ -79,7 +79,7 @@ Wall time used = 32 seconds
     time_t wallBeginSort = time(NULL); //Epoch is time since 00:00:00 UTC, January 1, 1970;
 
     //insertion sort algorithm
-    for(int j = 1; j < 100000; j++){
+    for(int j = 1; j < 10; j++){
         int temp = newArray[j];
         int k = j - 1;
         while(k > -1 && newArray[k] > temp){
@@ -94,11 +94,11 @@ Wall time used = 32 seconds
 
     //print the numbers that now exist in newArray
     printf("\nnewArray after sorting() - ");
-    //for(int j = 0; j < 100000; j++){
-    //    printf("%d, ", newArray[j]);
-    //}
+    for(int j = 0; j < 10; j++){
+        printf("%d, ", newArray[j]);
+    }
 
-    //printf("\n");
+    printf("\n");
 
     //close the file pointer and free memory used by newArray
     fclose(fp);
