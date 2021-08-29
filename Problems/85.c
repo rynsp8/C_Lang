@@ -49,22 +49,28 @@ number   numeral
 
     while(num > 0){
         if(num >= 1000){
-            remain = num % 1000;
             for(int i = 0; i < (num / 1000); i++){
                 printf("M");
             }
+            num = num % 1000;
         }
         if(num < 1000 && num >= 500){
-            remain = num % 500;
-            printf("D");
+            for(int i = 0; i < (num / 500); i++){
+                printf("D");
+            }
+            num = num % 500;
         }
         if(num < 500 && num >= 100){
-            remain = num % 100;
-            printf("C");
+            for(int i = 0; i < (num / 100); i++){
+                printf("C");
+            }
+            num = num % 100;
         }
         if(num < 100 && num >= 50){
-            remain = num % 50;
-            printf("L");
+            for(int i = 0; i < (num / 50); i++){
+                printf("L");
+            }
+            num = num % 50;
         }
     }
 
